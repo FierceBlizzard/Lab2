@@ -67,6 +67,7 @@ public class TreasureBox {
                 }
                 return true;
             }
+
         }
         else if(box2.getTotalPoints() < 0 || box1.getTotalPoints() < 0){
             if(box2.getTotalPoints() < box1.getTotalPoints() && box2.getTotalPoints() < 0){

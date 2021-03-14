@@ -201,7 +201,7 @@ public class TreasureBoxTest {
 
 
     @Test
-    public void testingBalanceBoxes3() {
+      public void testingBalanceBoxes3() {
         System.out.println("\nTesting Treasure Box balanceBoxes 3");
 
         // third test
@@ -209,6 +209,7 @@ public class TreasureBoxTest {
         TreasureBox testBox2 = new TreasureBox(1,-11);
 
         assertTrue(TreasureBox.balanceBoxes(testBox1,testBox2));
+
         // use getters to test num of coins
         assertEquals(1,testBox1.getNumGoldCoins());
         assertEquals(0,testBox1.getNumSilverCoins());
@@ -219,7 +220,7 @@ public class TreasureBoxTest {
         assertEquals((int) (1000 * (75 + (-11*7.5))),(int) (1000 * testBox2.getTotalPoints()));
     }
 
-/*
+
 
     @Test
     public void testingBalanceBoxes4() {
@@ -238,6 +239,6 @@ public class TreasureBoxTest {
         assertEquals((int) (1000 * (30)),(int) (1000 * testBox1.getTotalPoints()));
         assertEquals( (int) (1000 * (45 + (-5*7.5))),(int) (1000 * testBox2.getTotalPoints()));
     }
-    */
+
 
 }

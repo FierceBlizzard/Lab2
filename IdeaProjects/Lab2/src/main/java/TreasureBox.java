@@ -7,7 +7,7 @@ public class TreasureBox {
     private double totalCoins;
 
     private void updateTotalPoints(){
-        this.totalCoins = (this.PTS_PER_GOLD_COIN * this.gold_coins)+ (this.PTS_PER_SILVER_COIN * this.silver_coins);
+        this.totalCoins = (this.PTS_PER_GOLD_COIN * this.gold_coins) + (this.PTS_PER_SILVER_COIN * this.silver_coins);
     }
 
     public TreasureBox(double gold_coins, double silver_coins){
@@ -17,6 +17,7 @@ public class TreasureBox {
     }
     public TreasureBox(){
         this(0,0);
+        updateTotalPoints();
     }
     public double getTotalPoints(){
         return this.totalCoins;
@@ -60,25 +61,31 @@ public class TreasureBox {
 
         //Transferring from box 2 to 1
         if(box1.getTotalPoints() < 0 || box2.getTotalPoints() < 0){
-            if(box1.getTotalPoints() < box2.getTotalPoints() && box1.getTotalPoints() < 0){
-                while(box2.getNumGoldCoins() >= 0 && box2.getTotalPoints() > box1.getTotalPoints()){
+            if(box1.getTotalPoints() < box2.getTotalPoints() && box1.getTotalPoints() < 0 && box2.getNumGoldCoins() > 0){
+                while((box2.getNumGoldCoins() >= 0) && (box2.getTotalPoints()-PTS_PER_GOLD_COIN >= box1.getTotalPoints()+ PTS_PER_GOLD_COIN)&& (box1.getTotalPoints() < 0)){
                     box2.removeGoldCoins(transferOfGold);
                     box1.collectCoins(transferOfGold,0);
+                    System.out.println("total points 1: "+box1.getTotalPoints()+" total points 2: "+box2.getTotalPoints());
+
                 }
+                System.out.println("First If");
+                return true;
+            }
+            if(box2.getTotalPoints() < box1.getTotalPoints() && box2.getTotalPoints() < 0 && box1.getNumGoldCoins() > 0){
+                while((box1.getNumGoldCoins() >= 0 )&& (box1.getTotalPoints()-PTS_PER_GOLD_COIN >= box2.getTotalPoints()+PTS_PER_GOLD_COIN)&& (box2.getTotalPoints() < 0)){
+                    box1.removeGoldCoins(transferOfGold);
+                    box2.collectCoins(transferOfGold,0);
+                    System.out.println("total points 1: "+box1.getTotalPoints()+" total points 2: "+box2.getTotalPoints());
+                }
+                System.out.println("Second If");
                 return true;
             }
 
         }
-        else if(box2.getTotalPoints() < 0 || box1.getTotalPoints() < 0){
-            if(box2.getTotalPoints() < box1.getTotalPoints() && box2.getTotalPoints() < 0){
-                while(box1.getNumGoldCoins() >= 0 && box1.getTotalPoints() > box2.getTotalPoints()){
-                    box1.removeGoldCoins(transferOfGold);
-                    box2.collectCoins(transferOfGold,0);
-                }
-                return true;
-            }
-        }
+        System.out.println("No If");
         return false;
     }
+
+
 
 }

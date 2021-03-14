@@ -199,7 +199,7 @@ public class TreasureBoxTest {
     }
 
 
-/*
+
     @Test
     public void testingBalanceBoxes3() {
         System.out.println("\nTesting Treasure Box balanceBoxes 3");
@@ -219,7 +219,7 @@ public class TreasureBoxTest {
         assertEquals((int) (1000 * (75 + (-11*7.5))),(int) (1000 * testBox2.getTotalPoints()));
     }
 
-
+/*
 
     @Test
     public void testingBalanceBoxes4() {

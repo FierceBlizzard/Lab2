@@ -55,8 +55,29 @@ public class TreasureBox {
             return true;
         }
     }
-    public static void balanceBox(){
+    public static void balanceBox(TreasureBox box1, TreasureBox box2){
+        int transferOfGold = 1;
 
+        //Transferring from box 2 to 1
+        if(box1.getTotalPoints() < 0 || box2.getTotalPoints() < 0){
+            if(box1.getTotalPoints() < box2.getTotalPoints() && box1.getTotalPoints() < 0){
+                while(box2.getNumGoldCoins() >= 0 && box2.getTotalPoints() > box1.getTotalPoints()){
+                    box2.removeGoldCoins(transferOfGold);
+                    box1.collectCoins(transferOfGold,0);
+
+                }
+            }
+        }
+
+        //Transferring from box 1 to 2
+        if(box2.getTotalPoints() < 0 || box1.getTotalPoints() < 0){
+            if(box2.getTotalPoints() < box1.getTotalPoints() && box2.getTotalPoints() < 0){
+                while(box1.getNumGoldCoins() >= 0 && box1.getTotalPoints() > box2.getTotalPoints()){
+                    box1.removeGoldCoins(transferOfGold);
+                    box2.collectCoins(transferOfGold,0);
+                }
+            }
+        }
     }
 
 }

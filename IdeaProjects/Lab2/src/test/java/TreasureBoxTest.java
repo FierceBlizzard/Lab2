@@ -157,7 +157,7 @@ public class TreasureBoxTest {
 
 
 
-/*
+
     @Test
     public void testingBalanceBoxes1() {
         System.out.println("\nTesting Treasure Box balanceBoxes - 1");
@@ -199,7 +199,7 @@ public class TreasureBoxTest {
     }
 
 
-
+/*
     @Test
     public void testingBalanceBoxes3() {
         System.out.println("\nTesting Treasure Box balanceBoxes 3");
